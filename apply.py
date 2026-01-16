@@ -31,7 +31,8 @@ payload_json_str = json.dumps(payload_dict, sort_keys=True, separators=(',', ':'
 payload_bytes = payload_json_str.encode('utf-8')
 
 #Signing the Payload
-secret = b"abhinav_b12_application"
+secret_str = os.getenv('B12_SECRET')
+secret = secret_str.encode('utf-8')
 signature = hmac.new(secret, payload_bytes, hashlib.sha256).hexdigest()
 
 #Sending Request

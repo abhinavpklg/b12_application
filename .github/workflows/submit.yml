@@ -27,4 +27,6 @@ jobs:
         pip install requests
 
     - name: Run application script
+      env:
+        B12_SECRET: ${{ secrets.B12_SECRET }}
       run: python apply.py
